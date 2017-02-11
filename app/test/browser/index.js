@@ -22,20 +22,11 @@ describe('App', () => {
     scratch = null;
   });
 
-
   describe('routing', () => {
     it('should render the homepage', () => {
       render(<App />, scratch);
 
       expect(scratch.innerHTML).to.contain('Home');
-    });
-
-    it('should render /profile', () => {
-      render(<App />, scratch);
-      route('/profile');
-      rerender();
-
-      expect(scratch.innerHTML).to.contain('Profile: me');
     });
 
     it('should render /sign-up', () => {
@@ -45,6 +36,7 @@ describe('App', () => {
 
       expect(scratch.innerHTML).to.contain('Create a new account');
     });
+
     it('should render /sign-in', () => {
       render(<App />, scratch);
       route('/sign-in');

@@ -2,7 +2,7 @@ import { h, Component } from 'preact';
 import style from './style';
 import Field from '../shared/basicField.js';
 
-export default class SignUp extends Component {
+export default class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = { };
@@ -26,23 +26,22 @@ export default class SignUp extends Component {
 
   render() {
     return (
-      <main class={style.signup}>
+      <main class={style.signin}>
         <header>
-          <h1>Create a new account</h1>
+          <h1>Sign in to an existing account</h1>
         </header>
         <form onSubmit={this.handleSubmit}>
-          <Field type="text" name="username" label="Name"
-            onChange={this.handleInputChange}></Field>
           <Field type="email" name="email" label="Email"
             onChange={this.handleInputChange}></Field>
           <Field type="password" name="password" label="Password"
             onChange={this.handleInputChange}></Field>
           <field>
-            <input type="submit" value="Sign Up"></input>
+            <input type="submit" value="Sign In"></input>
           </field>
         </form>
         <p>
-          Already signed up? <a href="/sign-in">Sign in now!</a>
+          <a href="/sign-up">Sign up</a>&nbsp;&nbsp;&nbsp;
+          <a href="/forgot-password">Forgot password?</a>
         </p>
       </main>
     );

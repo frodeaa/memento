@@ -4,7 +4,8 @@ import { Router } from 'preact-router';
 import Header from './header';
 import Home from './home';
 import Profile from './profile';
-import Signup from './signup';
+import SignIn from './signin';
+import SignUp from './signup';
 
 export default class App extends Component {
   /** Gets fired when the route changes.
@@ -22,7 +23,8 @@ export default class App extends Component {
         <Router onChange={this.handleRoute}>
           <Home path="/" />
           <Profile path="/profile/" user="me" />
-          <Signup path="/sign-up" />
+          <SignIn path="/sign-in" />
+          <SignUp path="/sign-up" />
         </Router>
       </div>
     );

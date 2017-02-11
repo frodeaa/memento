@@ -1,16 +1,14 @@
-import { h, Component } from 'preact'
+import { h, Component } from 'preact';
 
 export default class Field extends Component {
-  render(props, onChange) {
+  render(props) {
     return (
       <field>
         <label for={props.name}>{props.label}</label>
-        <input 
+        <input
           type={props.type}
           name={props.name} onChange={props.onChange}></input>
       </field>
     );
   }
 }
-
-

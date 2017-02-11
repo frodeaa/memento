@@ -45,5 +45,12 @@ describe('App', () => {
 
       expect(scratch.innerHTML).to.contain('Create a new account');
     });
+    it('should render /sign-in', () => {
+      render(<App />, scratch);
+      route('/sign-in');
+      rerender();
+
+      expect(scratch.innerHTML).to.contain('Sign in to an existing account');
+    });
   });
 });

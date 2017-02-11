@@ -9,7 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack -p --progress",
     "prebuild": "mkdirp build && ncp src/assets build/assets",
     "test": "npm run -s lint && npm run -s test:karma",
-    "test:karma": "karma start test/karma.conf.js --single-run",
+    "test:karma": "karma start test/karma.conf.js --single-run --no-colors",
     "lint": "eslint {src,test}"
   },
   "keywords": [

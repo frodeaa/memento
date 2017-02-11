@@ -1,12 +1,20 @@
 // import 'promise-polyfill';
 // import 'isomorphic-fetch';
 import { h, render } from 'preact';
+import { Provider } from 'preact-redux';
+import store from './store';
 import './style';
 
 let root;
 function init() {
   let App = require('./components/app').default;
-  root = render(<App />, document.body, root);
+  root = render((
+    <div id='outer'>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </div>
+  ), document.body, root);
 }
 
 // register ServiceWorker via OfflinePlugin, for prod only:

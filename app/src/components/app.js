@@ -3,9 +3,9 @@ import { Router } from 'preact-router';
 
 import Header from './header';
 import Home from './home';
-import SignIn from './signin';
-import SignUp from './signup';
-import ForgotPassword from './forgotpassword';
+import SignIn from './auth/signin.js';
+import SignUp from './auth/signup.js';
+import ForgotPassword from './auth/forgotpassword.js';
 
 export default class App extends Component {
   /** Gets fired when the route changes.

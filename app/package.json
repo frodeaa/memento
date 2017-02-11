@@ -13,9 +13,9 @@
     "lint": "eslint {src,test}"
   },
   "keywords": [
-    "preact",
-    "boilerplate",
-    "webpack"
+    "memento",
+    "email",
+    "reminder"
   ],
   "license": "MIT",
   "author": "Frode Aannevik <frode.aa@gmail.com>",

@@ -5,3 +5,4 @@ build
 coverage
 .idea
 yarn.lock
+.env

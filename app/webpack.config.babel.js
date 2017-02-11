@@ -7,8 +7,19 @@ import ReplacePlugin from 'replace-bundle-webpack-plugin';
 import OfflinePlugin from 'offline-plugin';
 import path from 'path';
 import V8LazyParseWebpackPlugin from 'v8-lazy-parse-webpack-plugin';
-const ENV = process.env.NODE_ENV || 'development';
+import dotenv from 'dotenv'
 
+dotenv.config()
+const exposed = [
+  'NODE_ENV',
+  'AWS_REGION',
+  'AWS_IDENTITYPOOL',
+  'AWS_CLIENTAPP'
+]
+const exposedEnvironment = {}
+exposed.forEach(i => { exposedEnvironment[i] = JSON.stringify(process.env[i]) });
+
+const ENV = exposedEnvironment.NODE_ENV || 'development';
 const CSS_MAPS = ENV!=='production';
 
 module.exports = {
@@ -95,7 +106,7 @@ module.exports = {
 			disable: ENV!=='production'
 		}),
 		new webpack.DefinePlugin({
-			'process.env.NODE_ENV': JSON.stringify(ENV)
+			'process.env': exposedEnvironment
 		}),
 		new HtmlWebpackPlugin({
 			template: './index.ejs',

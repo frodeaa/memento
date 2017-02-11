@@ -7,6 +7,7 @@ export default class Signup extends Component {
     super(props);
     this.state = { };
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleInputChange(event) {
@@ -18,13 +19,18 @@ export default class Signup extends Component {
     });
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log('submit', this.state);
+  }
+
   render() {
     return (
       <main class={style.signup}>
         <header>
           <h1>Create a new account</h1>
         </header>
-        <form>
+        <form onSubmit={this.handleSubmit}> 
           <Field type="text" name="username" label="Name"
             onChange={this.handleInputChange}></Field>
           <Field type="email" name="email" label="Email"
@@ -32,8 +38,7 @@ export default class Signup extends Component {
           <Field type="password" name="password" label="Password"
             onChange={this.handleInputChange}></Field>
           <field>
-            <input name="commit" type="submit"
-              value="Sign Up"></input>
+            <input type="submit" value="Sign Up"></input>
           </field>
         </form>
       </main>

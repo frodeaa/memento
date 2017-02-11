@@ -44,5 +44,14 @@ describe('App', () => {
 
       expect(scratch.innerHTML).to.contain('Sign in to an existing account');
     });
+
+    it('should render /forgot-password', () => {
+      render(<App />, scratch);
+      route('/forgot-password');
+      rerender();
+
+      expect(scratch.innerHTML).to.contain('Reset Your Password');
+    });
+
   });
 });

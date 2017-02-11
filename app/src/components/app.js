@@ -5,6 +5,7 @@ import Header from './header';
 import Home from './home';
 import SignIn from './signin';
 import SignUp from './signup';
+import ForgotPassword from './forgotpassword';
 
 export default class App extends Component {
   /** Gets fired when the route changes.
@@ -23,6 +24,7 @@ export default class App extends Component {
           <Home path="/" />
           <SignIn path="/sign-in" />
           <SignUp path="/sign-up" />
+          <ForgotPassword path="/forgot-password" />
         </Router>
       </div>
     );

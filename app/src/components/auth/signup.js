@@ -41,9 +41,6 @@ export default class SignUp extends Component {
             <input type="submit" value="Sign Up"></input>
           </field>
         </form>
-        <p>
-          Already signed up? <a href="/sign-in">Sign in now!</a>
-        </p>
       </main>
     );
   }

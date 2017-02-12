@@ -29,20 +29,20 @@ describe('App', () => {
       expect(scratch.innerHTML).to.contain('Home');
     });
 
-    it('should render /sign-up', () => {
+    it('should render /register', () => {
       render(<App />, scratch);
-      route('/sign-up');
+      route('/register');
       rerender();
 
       expect(scratch.innerHTML).to.contain('Create a new account');
     });
 
-    it('should render /sign-in', () => {
+    it('should render /login', () => {
       render(<App />, scratch);
-      route('/sign-in');
+      route('/login');
       rerender();
 
-      expect(scratch.innerHTML).to.contain('Sign in to an existing account');
+      expect(scratch.innerHTML).to.contain('Log in');
     });
 
     it('should render /forgot-password', () => {

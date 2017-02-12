@@ -30,17 +30,15 @@ export default class ForgotPassword extends Component {
         <header>
           <h1>Reset Your Password</h1>
         </header>
-        <form onSubmit={this.handleSubmit}>
+        <p>
+          Enter your email address below and we'll send you a link with instructions.</p> 
+          <form onSubmit={this.handleSubmit}>
           <Field type="email" name="email" label="Email"
             onChange={this.handleInputChange}></Field>
           <field>
-            <input type="submit" value="Sign In"></input>
+            <input type="submit" value="Submit"></input>
           </field>
         </form>
-        <p>
-          Just want to sign in? <a href="/sign-in">
-            Go back to the sign in form</a>
-        </p>
       </main>
     );
   }

@@ -9,8 +9,8 @@ export default class Header extends Component {
         <h1>Memento</h1>
         <nav>
           <Link href="/">Home</Link>
-          <Link href="/sign-in">sign in</Link>
-          <Link href="/sign-up">sign up</Link>
+          <Link href="/login">Log in</Link>
+          <Link href="/register">sign up</Link>
         </nav>
       </header>
     );

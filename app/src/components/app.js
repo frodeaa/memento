@@ -3,7 +3,7 @@ import { Router } from 'preact-router';
 
 import Header from './header';
 import Home from './home';
-import SignIn from './auth/signin.js';
+import LogIn from './auth/login.js';
 import SignUp from './auth/signup.js';
 import ForgotPassword from './auth/forgotpassword.js';
 
@@ -22,8 +22,8 @@ export default class App extends Component {
         <Header />
         <Router onChange={this.handleRoute}>
           <Home path="/" />
-          <SignIn path="/sign-in" />
-          <SignUp path="/sign-up" />
+          <LogIn path="/login" />
+          <SignUp path="/register" />
           <ForgotPassword path="/forgot-password" />
         </Router>
       </div>

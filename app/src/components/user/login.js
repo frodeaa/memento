@@ -1,6 +1,5 @@
 import { h, Component } from 'preact';
 import style from './style';
-import Field from '../shared/basicField.js';
 
 class LoginForm extends Component {
   constructor(props) {

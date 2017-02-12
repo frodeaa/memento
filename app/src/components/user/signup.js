@@ -1,46 +1,67 @@
 import { h, Component } from 'preact';
 import style from './style';
-import Field from '../shared/basicField.js';
 
-export default class SignUp extends Component {
+class RegistrationForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { };
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      username:undefined,
+      email: undefined,
+      password: undefined
+    };
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  handleInputChange(event) {
+  onSubmit = (event) => {
+    this.props.onSubmit(this.state);
+    event.preventDefault();
+  }
+
+  onChange = (event) => {
     const target = event.target;
-    const value = target.value;
-    const name = target.name;
     this.setState({
-      [name]: value
+      [target.name]: target.value
     });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    console.log('submit', this.state);
+  render(props) {
+    return (
+      <form onSubmit={this.onSubmit}>
+        <field>
+          <label for="username">Name</label>
+          <input name="username" type="text"
+            onChange={this.onChange}></input>
+        </field>
+        <field>
+          <label for="email">Email</label>
+          <input name="email" type="email"
+            onChange={this.onChange}></input>
+        </field>
+        <field>
+          <label for="password">Password</label>
+          <input name="password" type="password"
+            onChange={this.onChange}></input>
+        </field>
+        <field>
+          <input type="submit" value="submit">PUSH</input>
+        </field>
+      </form>
+    );
   }
+}
 
+export default class SignUp extends Component {
   render() {
+    const handleNewUser = (user) => {
+      console.log('handle new user', user);
+    };
     return (
       <main class={style.signup}>
         <header>
           <h1>Create a new account</h1>
         </header>
-        <form onSubmit={this.handleSubmit}>
-          <Field type="text" name="username" label="Name"
-            onChange={this.handleInputChange}></Field>
-          <Field type="email" name="email" label="Email"
-            onChange={this.handleInputChange}></Field>
-          <Field type="password" name="password" label="Password"
-            onChange={this.handleInputChange}></Field>
-          <field>
-            <input type="submit" value="Sign Up"></input>
-          </field>
-        </form>
+        <RegistrationForm onSubmit={handleNewUser} />
       </main>
     );
   }

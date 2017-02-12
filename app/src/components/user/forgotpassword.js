@@ -1,30 +1,46 @@
 import { h, Component } from 'preact';
 import style from './style';
-import Field from '../shared/basicField.js';
 
-export default class ForgotPassword extends Component {
+class ForgotPasswordForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { };
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = { email: undefined };
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  handleInputChange(event) {
+  onSubmit = (event) => {
+    this.props.onSubmit(this.state);
+    event.preventDefault();
+  }
+
+  onChange = (event) => {
     const target = event.target;
-    const value = target.value;
-    const name = target.name;
     this.setState({
-      [name]: value
+      [target.name]: target.value
     });
   }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    console.log('submit', this.state);
-  }
-
   render() {
+    return (
+      <form onSubmit={this.onSubmit}>
+        <field>
+          <label for="email">Email</label>
+          <input name="email" type="email"
+            onChange={this.onChange}></input>
+        </field>
+        <field>
+          <input type="submit" value="Submit"></input>
+        </field>
+      </form>
+    );
+  }
+}
+
+export default class ForgotPassword extends Component {
+  render() {
+    const handleRecover = (email) => {
+      console.log('handle recover', email);
+    };
     return (
       <main class={style.forgotpassword}>
         <header>
@@ -32,13 +48,7 @@ export default class ForgotPassword extends Component {
         </header>
         <p>
           Enter your email address below and we'll send you a link with instructions.</p>
-          <form onSubmit={this.handleSubmit}>
-          <Field type="email" name="email" label="Email"
-            onChange={this.handleInputChange}></Field>
-          <field>
-            <input type="submit" value="Submit"></input>
-          </field>
-        </form>
+        <ForgotPasswordForm onSubmit={handleRecover} />
       </main>
     );
   }

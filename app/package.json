@@ -4,7 +4,7 @@
   "description": "Memento - Nag app",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress",
-    "start": "serve build -s -c 1",
+    "start": "serve build -s",
     "prestart": "npm run build",
     "build": "cross-env NODE_ENV=production webpack -p --progress",
     "prebuild": "mkdirp build && ncp src/assets build/assets",
@@ -79,7 +79,7 @@
     "preact-router": "^2.0.0",
     "promise-polyfill": "^6.0.2",
     "proptypes": "^0.14.3",
-    "serve": "^3.1.0",
+    "serve": "^9.4.0",
     "redux": "^3.6.0"
   },
   "main": "webpack.config.babel.js",
